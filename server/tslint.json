@@ -10,7 +10,8 @@
         "interface-name": true,
         "quotemark": false,
         "ordered-imports": false,
-        "arrow-parens": false
+        "arrow-parens": false,
+        "object-literal-sort-keys": false
     },
     "rulesDirectory": []
 }
