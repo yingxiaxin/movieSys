@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>收益计算</title>
+  <style>
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      /* Chrome/Safari */
+      margin: 0;
+    }
+
+    input[type="number"] {
+      height: 20px;
+    }
+
+    .container {
+      width: 100%;
+      height: fit-content;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .input_area {
+      width: 60%;
+    }
+
+    .result_area { 
+      width: 40%;
+    }
+
+    .item_wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .item_wrapper:not(:last-child) {      
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <section class="input_area">
+      <fieldset>
+        <legend>胡姬酒肆：</legend>
+        <div class="item_wrapper">
+          <label for="hjjsPrice">游玩单价：</label>
+          <input type="number" id="hjjsPrice" name="hjjsPrice">
+          <label for="hjjsPriceCost">升级费用：</label>
+          <input type="number" id="hjjsPriceCost" name="hjjsPriceCost">
+        </div>
+  
+        <div class="item_wrapper">
+          <label for="hjjsAmount">游客数量：</label>
+          <input type="number" id="hjjsAmount" name="hjjsAmount">
+          <label for="hjjsAmountCost">升级费用：</label>
+          <input type="number" id="hjjsAmountCost" name="hjjsAmountCost">
+        </div>
+        <div class="item_wrapper">
+          <label for="hjjsProfit">获得利润：</label>
+          <input type="number" id="hjjsProfit" name="hjjsProfit">
+          <label for="hjjsProfitCost">升级费用：</label>
+          <input type="number" id="hjjsProfitCost" name="hjjsProfitCost">
+        </div>
+      </fieldset>
+  
+      <fieldset>
+        <legend>皮影戏院：</legend>
+        <div class="item_wrapper">
+          <label for="hjjsPrice">游玩单价：</label>
+          <input type="number" id="hjjsPrice" name="hjjsPrice">
+          <label for="hjjsPriceCost">升级费用：</label>
+          <input type="number" id="hjjsPriceCost" name="hjjsPriceCost">
+        </div>
+  
+        <div class="item_wrapper">
+          <label for="hjjsAmount">游客数量：</label>
+          <input type="number" id="hjjsAmount" name="hjjsAmount">
+          <label for="hjjsAmountCost">升级费用：</label>
+          <input type="number" id="hjjsAmountCost" name="hjjsAmountCost">
+        </div>
+        <div class="item_wrapper">
+          <label for="hjjsProfit">获得利润：</label>
+          <input type="number" id="hjjsProfit" name="hjjsProfit">
+          <label for="hjjsProfitCost">升级费用：</label>
+          <input type="number" id="hjjsProfitCost" name="hjjsProfitCost">
+        </div>
+      </fieldset>
+  
+      <fieldset>
+        <legend>华清池：</legend>
+        <div class="item_wrapper">
+          <label for="hjjsPrice">游玩单价：</label>
+          <input type="number" id="hjjsPrice" name="hjjsPrice">
+          <label for="hjjsPriceCost">升级费用：</label>
+          <input type="number" id="hjjsPriceCost" name="hjjsPriceCost">
+        </div>
+  
+        <div class="item_wrapper">
+          <label for="hjjsAmount">游客数量：</label>
+          <input type="number" id="hjjsAmount" name="hjjsAmount">
+          <label for="hjjsAmountCost">升级费用：</label>
+          <input type="number" id="hjjsAmountCost" name="hjjsAmountCost">
+        </div>
+        <div class="item_wrapper">
+          <label for="hjjsProfit">获得利润：</label>
+          <input type="number" id="hjjsProfit" name="hjjsProfit">
+          <label for="hjjsProfitCost">升级费用：</label>
+          <input type="number" id="hjjsProfitCost" name="hjjsProfitCost">
+        </div>
+      </fieldset>
+  
+      <fieldset>
+        <legend>游艺馆：</legend>
+        <div class="item_wrapper">
+          <label for="hjjsPrice">游玩单价：</label>
+          <input type="number" id="hjjsPrice" name="hjjsPrice">
+          <label for="hjjsPriceCost">升级费用：</label>
+          <input type="number" id="hjjsPriceCost" name="hjjsPriceCost">
+        </div>
+  
+        <div class="item_wrapper">
+          <label for="hjjsAmount">游客数量：</label>
+          <input type="number" id="hjjsAmount" name="hjjsAmount">
+          <label for="hjjsAmountCost">升级费用：</label>
+          <input type="number" id="hjjsAmountCost" name="hjjsAmountCost">
+        </div>
+        <div class="item_wrapper">
+          <label for="hjjsProfit">获得利润：</label>
+          <input type="number" id="hjjsProfit" name="hjjsProfit">
+          <label for="hjjsProfitCost">升级费用：</label>
+          <input type="number" id="hjjsProfitCost" name="hjjsProfitCost">
+        </div>
+      </fieldset>
+  
+      <fieldset>
+        <legend>杏园：</legend>
+        <div class="item_wrapper">
+          <label for="hjjsPrice">游玩单价：</label>
+          <input type="number" id="hjjsPrice" name="hjjsPrice">
+          <label for="hjjsPriceCost">升级费用：</label>
+          <input type="number" id="hjjsPriceCost" name="hjjsPriceCost">
+        </div>
+  
+        <div class="item_wrapper">
+          <label for="hjjsAmount">游客数量：</label>
+          <input type="number" id="hjjsAmount" name="hjjsAmount">
+          <label for="hjjsAmountCost">升级费用：</label>
+          <input type="number" id="hjjsAmountCost" name="hjjsAmountCost">
+        </div>
+        <div class="item_wrapper">
+          <label for="hjjsProfit">获得利润：</label>
+          <input type="number" id="hjjsProfit" name="hjjsProfit">
+          <label for="hjjsProfitCost">升级费用：</label>
+          <input type="number" id="hjjsProfitCost" name="hjjsProfitCost">
+        </div>
+      </fieldset>
+  
+      <fieldset>
+        <legend>雁塔广场：</legend>
+        <div class="item_wrapper">
+          <label for="hjjsPrice">游玩单价：</label>
+          <input type="number" id="hjjsPrice" name="hjjsPrice">
+          <label for="hjjsPriceCost">升级费用：</label>
+          <input type="number" id="hjjsPriceCost" name="hjjsPriceCost">
+        </div>
+  
+        <div class="item_wrapper">
+          <label for="hjjsAmount">游客数量：</label>
+          <input type="number" id="hjjsAmount" name="hjjsAmount">
+          <label for="hjjsAmountCost">升级费用：</label>
+          <input type="number" id="hjjsAmountCost" name="hjjsAmountCost">
+        </div>
+        <div class="item_wrapper">
+          <label for="hjjsProfit">获得利润：</label>
+          <input type="number" id="hjjsProfit" name="hjjsProfit">
+          <label for="hjjsProfitCost">升级费用：</label>
+          <input type="number" id="hjjsProfitCost" name="hjjsProfitCost">
+        </div>
+      </fieldset>
+  
+      <fieldset>
+        <legend>大慈恩寺：</legend>
+        <div class="item_wrapper">
+          <label for="hjjsPrice">游玩单价：</label>
+          <input type="number" id="hjjsPrice" name="hjjsPrice">
+          <label for="hjjsPriceCost">升级费用：</label>
+          <input type="number" id="hjjsPriceCost" name="hjjsPriceCost">
+        </div>
+  
+        <div class="item_wrapper">
+          <label for="hjjsAmount">游客数量：</label>
+          <input type="number" id="hjjsAmount" name="hjjsAmount">
+          <label for="hjjsAmountCost">升级费用：</label>
+          <input type="number" id="hjjsAmountCost" name="hjjsAmountCost">
+        </div>
+        <div class="item_wrapper">
+          <label for="hjjsProfit">获得利润：</label>
+          <input type="number" id="hjjsProfit" name="hjjsProfit">
+          <label for="hjjsProfitCost">升级费用：</label>
+          <input type="number" id="hjjsProfitCost" name="hjjsProfitCost">
+        </div>
+      </fieldset>
+    </section>
+    <section class="result_area"></section>
+  </div>
+  <script src="./js/index.js"></script>
+</body>
+
+</html>
