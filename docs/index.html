@@ -21,16 +21,21 @@
       width: 100%;
       height: fit-content;
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
     }
 
     .input_area {
-      width: 60%;
+      width: 30%;
     }
 
     .result_area { 
-      width: 40%;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin-left: 20px;
     }
 
     .item_wrapper {
@@ -42,6 +47,19 @@
     .item_wrapper:not(:last-child) {      
       margin-bottom: 5px;
     }
+
+    .result_wrapper {
+      min-height: 800px;
+      white-space: pre;
+    }
+
+    .cur_wrapper {
+      margin-bottom: 10px;
+    }
+
+    .cur_wrapper input {
+      width: 100px;
+    }
   </style>
 </head>
 
@@ -50,6 +68,12 @@
     <section class="input_area">
       <fieldset>
         <legend>胡姬酒肆：</legend>
+        <div class="cur_wrapper">
+          <label>当前单价、数量、利润</label>
+          <input type="number" id="hjjsCurPrice" name="hjjsCurPrice">
+          <input type="number" id="hjjsCurAmount" name="hjjsCurAmount">
+          <input type="number" id="hjjsCurProfit" name="hjjsCurProfit">
+        </div>
         <div class="item_wrapper">
           <label for="hjjsPrice">游玩单价：</label>
           <input type="number" id="hjjsPrice" name="hjjsPrice">
@@ -73,145 +97,193 @@
   
       <fieldset>
         <legend>皮影戏院：</legend>
+        <div class="cur_wrapper">
+          <label>当前单价、数量、利润</label>
+          <input type="number" id="pyxyCurPrice" name="pyxyCurPrice">
+          <input type="number" id="pyxyCurAmount" name="pyxyCurAmount">
+          <input type="number" id="pyxyCurProfit" name="pyxyCurProfit">
+        </div>
         <div class="item_wrapper">
-          <label for="hjjsPrice">游玩单价：</label>
-          <input type="number" id="hjjsPrice" name="hjjsPrice">
-          <label for="hjjsPriceCost">升级费用：</label>
-          <input type="number" id="hjjsPriceCost" name="hjjsPriceCost">
+          <label for="pyxyPrice">游玩单价：</label>
+          <input type="number" id="pyxyPrice" name="pyxyPrice">
+          <label for="pyxyPriceCost">升级费用：</label>
+          <input type="number" id="pyxyPriceCost" name="pyxyPriceCost">
         </div>
   
         <div class="item_wrapper">
-          <label for="hjjsAmount">游客数量：</label>
-          <input type="number" id="hjjsAmount" name="hjjsAmount">
-          <label for="hjjsAmountCost">升级费用：</label>
-          <input type="number" id="hjjsAmountCost" name="hjjsAmountCost">
+          <label for="pyxyAmount">游客数量：</label>
+          <input type="number" id="pyxyAmount" name="pyxyAmount">
+          <label for="pyxyAmountCost">升级费用：</label>
+          <input type="number" id="pyxyAmountCost" name="pyxyAmountCost">
         </div>
         <div class="item_wrapper">
-          <label for="hjjsProfit">获得利润：</label>
-          <input type="number" id="hjjsProfit" name="hjjsProfit">
-          <label for="hjjsProfitCost">升级费用：</label>
-          <input type="number" id="hjjsProfitCost" name="hjjsProfitCost">
+          <label for="pyxyProfit">获得利润：</label>
+          <input type="number" id="pyxyProfit" name="pyxyProfit">
+          <label for="pyxyProfitCost">升级费用：</label>
+          <input type="number" id="pyxyProfitCost" name="pyxyProfitCost">
         </div>
       </fieldset>
   
       <fieldset>
         <legend>华清池：</legend>
+        <div class="cur_wrapper">
+          <label>当前单价、数量、利润</label>
+          <input type="number" id="hqcCurPrice" name="hqcCurPrice">
+          <input type="number" id="hqcCurAmount" name="hqcCurAmount">
+          <input type="number" id="hqcCurProfit" name="hqcCurProfit">
+        </div>
         <div class="item_wrapper">
-          <label for="hjjsPrice">游玩单价：</label>
-          <input type="number" id="hjjsPrice" name="hjjsPrice">
-          <label for="hjjsPriceCost">升级费用：</label>
-          <input type="number" id="hjjsPriceCost" name="hjjsPriceCost">
+          <label for="hqcPrice">游玩单价：</label>
+          <input type="number" id="hqcPrice" name="hqcPrice">
+          <label for="hqcPriceCost">升级费用：</label>
+          <input type="number" id="hqcPriceCost" name="hqcPriceCost">
         </div>
   
         <div class="item_wrapper">
-          <label for="hjjsAmount">游客数量：</label>
-          <input type="number" id="hjjsAmount" name="hjjsAmount">
-          <label for="hjjsAmountCost">升级费用：</label>
-          <input type="number" id="hjjsAmountCost" name="hjjsAmountCost">
+          <label for="hqcAmount">游客数量：</label>
+          <input type="number" id="hqcAmount" name="hqcAmount">
+          <label for="hqcAmountCost">升级费用：</label>
+          <input type="number" id="hqcAmountCost" name="hqcAmountCost">
         </div>
         <div class="item_wrapper">
-          <label for="hjjsProfit">获得利润：</label>
-          <input type="number" id="hjjsProfit" name="hjjsProfit">
-          <label for="hjjsProfitCost">升级费用：</label>
-          <input type="number" id="hjjsProfitCost" name="hjjsProfitCost">
+          <label for="hqcProfit">获得利润：</label>
+          <input type="number" id="hqcProfit" name="hqcProfit">
+          <label for="hqcProfitCost">升级费用：</label>
+          <input type="number" id="hqcProfitCost" name="hqcProfitCost">
         </div>
       </fieldset>
   
       <fieldset>
         <legend>游艺馆：</legend>
+        <div class="cur_wrapper">
+          <label>当前单价、数量、利润</label>
+          <input type="number" id="yygCurPrice" name="yygCurPrice">
+          <input type="number" id="yygCurAmount" name="yygCurAmount">
+          <input type="number" id="yygCurProfit" name="yygCurProfit">
+        </div>
         <div class="item_wrapper">
-          <label for="hjjsPrice">游玩单价：</label>
-          <input type="number" id="hjjsPrice" name="hjjsPrice">
-          <label for="hjjsPriceCost">升级费用：</label>
-          <input type="number" id="hjjsPriceCost" name="hjjsPriceCost">
+          <label for="yygPrice">游玩单价：</label>
+          <input type="number" id="yygPrice" name="yygPrice">
+          <label for="yygPriceCost">升级费用：</label>
+          <input type="number" id="yygPriceCost" name="yygPriceCost">
         </div>
   
         <div class="item_wrapper">
-          <label for="hjjsAmount">游客数量：</label>
-          <input type="number" id="hjjsAmount" name="hjjsAmount">
-          <label for="hjjsAmountCost">升级费用：</label>
-          <input type="number" id="hjjsAmountCost" name="hjjsAmountCost">
+          <label for="yygAmount">游客数量：</label>
+          <input type="number" id="yygAmount" name="yygAmount">
+          <label for="yygAmountCost">升级费用：</label>
+          <input type="number" id="yygAmountCost" name="yygAmountCost">
         </div>
         <div class="item_wrapper">
-          <label for="hjjsProfit">获得利润：</label>
-          <input type="number" id="hjjsProfit" name="hjjsProfit">
-          <label for="hjjsProfitCost">升级费用：</label>
-          <input type="number" id="hjjsProfitCost" name="hjjsProfitCost">
+          <label for="yygProfit">获得利润：</label>
+          <input type="number" id="yygProfit" name="yygProfit">
+          <label for="yygProfitCost">升级费用：</label>
+          <input type="number" id="yygProfitCost" name="yygProfitCost">
         </div>
       </fieldset>
   
       <fieldset>
         <legend>杏园：</legend>
+        <div class="cur_wrapper">
+          <label>当前单价、数量、利润</label>
+          <input type="number" id="xyCurPrice" name="xyCurPrice">
+          <input type="number" id="xyCurAmount" name="xyCurAmount">
+          <input type="number" id="xyCurProfit" name="xyCurProfit">
+        </div>
         <div class="item_wrapper">
-          <label for="hjjsPrice">游玩单价：</label>
-          <input type="number" id="hjjsPrice" name="hjjsPrice">
-          <label for="hjjsPriceCost">升级费用：</label>
-          <input type="number" id="hjjsPriceCost" name="hjjsPriceCost">
+          <label for="xyPrice">游玩单价：</label>
+          <input type="number" id="xyPrice" name="xyPrice">
+          <label for="xyPriceCost">升级费用：</label>
+          <input type="number" id="xyPriceCost" name="xyPriceCost">
         </div>
   
         <div class="item_wrapper">
-          <label for="hjjsAmount">游客数量：</label>
-          <input type="number" id="hjjsAmount" name="hjjsAmount">
-          <label for="hjjsAmountCost">升级费用：</label>
-          <input type="number" id="hjjsAmountCost" name="hjjsAmountCost">
+          <label for="xyAmount">游客数量：</label>
+          <input type="number" id="xyAmount" name="xyAmount">
+          <label for="xyAmountCost">升级费用：</label>
+          <input type="number" id="xyAmountCost" name="xyAmountCost">
         </div>
         <div class="item_wrapper">
-          <label for="hjjsProfit">获得利润：</label>
-          <input type="number" id="hjjsProfit" name="hjjsProfit">
-          <label for="hjjsProfitCost">升级费用：</label>
-          <input type="number" id="hjjsProfitCost" name="hjjsProfitCost">
+          <label for="xyProfit">获得利润：</label>
+          <input type="number" id="xyProfit" name="xyProfit">
+          <label for="xyProfitCost">升级费用：</label>
+          <input type="number" id="xyProfitCost" name="xyProfitCost">
         </div>
       </fieldset>
   
       <fieldset>
         <legend>雁塔广场：</legend>
+        <div class="cur_wrapper">
+          <label>当前单价、数量、利润</label>
+          <input type="number" id="ytgcCurPrice" name="ytgcCurPrice">
+          <input type="number" id="ytgcCurAmount" name="ytgcCurAmount">
+          <input type="number" id="ytgcCurProfit" name="ytgcCurProfit">
+        </div>
         <div class="item_wrapper">
-          <label for="hjjsPrice">游玩单价：</label>
-          <input type="number" id="hjjsPrice" name="hjjsPrice">
-          <label for="hjjsPriceCost">升级费用：</label>
-          <input type="number" id="hjjsPriceCost" name="hjjsPriceCost">
+          <label for="ytgcPrice">游玩单价：</label>
+          <input type="number" id="ytgcPrice" name="ytgcPrice">
+          <label for="ytgcPriceCost">升级费用：</label>
+          <input type="number" id="ytgcPriceCost" name="ytgcPriceCost">
         </div>
   
         <div class="item_wrapper">
-          <label for="hjjsAmount">游客数量：</label>
-          <input type="number" id="hjjsAmount" name="hjjsAmount">
-          <label for="hjjsAmountCost">升级费用：</label>
-          <input type="number" id="hjjsAmountCost" name="hjjsAmountCost">
+          <label for="ytgcAmount">游客数量：</label>
+          <input type="number" id="ytgcAmount" name="ytgcAmount">
+          <label for="ytgcAmountCost">升级费用：</label>
+          <input type="number" id="ytgcAmountCost" name="ytgcAmountCost">
         </div>
         <div class="item_wrapper">
-          <label for="hjjsProfit">获得利润：</label>
-          <input type="number" id="hjjsProfit" name="hjjsProfit">
-          <label for="hjjsProfitCost">升级费用：</label>
-          <input type="number" id="hjjsProfitCost" name="hjjsProfitCost">
+          <label for="ytgcProfit">获得利润：</label>
+          <input type="number" id="ytgcProfit" name="ytgcProfit">
+          <label for="ytgcProfitCost">升级费用：</label>
+          <input type="number" id="ytgcProfitCost" name="ytgcProfitCost">
         </div>
       </fieldset>
   
       <fieldset>
         <legend>大慈恩寺：</legend>
+        <div class="cur_wrapper">
+          <label>当前单价、数量、利润</label>
+          <input type="number" id="dcesCurPrice" name="dcesCurPrice">
+          <input type="number" id="dcesCurAmount" name="dcesCurAmount">
+          <input type="number" id="dcesCurProfit" name="dcesCurProfit">
+        </div>
         <div class="item_wrapper">
-          <label for="hjjsPrice">游玩单价：</label>
-          <input type="number" id="hjjsPrice" name="hjjsPrice">
-          <label for="hjjsPriceCost">升级费用：</label>
-          <input type="number" id="hjjsPriceCost" name="hjjsPriceCost">
+          <label for="dcesPrice">游玩单价：</label>
+          <input type="number" id="dcesPrice" name="dcesPrice">
+          <label for="dcesPriceCost">升级费用：</label>
+          <input type="number" id="dcesPriceCost" name="dcesPriceCost">
         </div>
   
         <div class="item_wrapper">
-          <label for="hjjsAmount">游客数量：</label>
-          <input type="number" id="hjjsAmount" name="hjjsAmount">
-          <label for="hjjsAmountCost">升级费用：</label>
-          <input type="number" id="hjjsAmountCost" name="hjjsAmountCost">
+          <label for="dcesAmount">游客数量：</label>
+          <input type="number" id="dcesAmount" name="dcesAmount">
+          <label for="dcesAmountCost">升级费用：</label>
+          <input type="number" id="dcesAmountCost" name="dcesAmountCost">
         </div>
         <div class="item_wrapper">
-          <label for="hjjsProfit">获得利润：</label>
-          <input type="number" id="hjjsProfit" name="hjjsProfit">
-          <label for="hjjsProfitCost">升级费用：</label>
-          <input type="number" id="hjjsProfitCost" name="hjjsProfitCost">
+          <label for="dcesProfit">获得利润：</label>
+          <input type="number" id="dcesProfit" name="dcesProfit">
+          <label for="dcesProfitCost">升级费用：</label>
+          <input type="number" id="dcesProfitCost" name="dcesProfitCost">
         </div>
       </fieldset>
     </section>
-    <section class="result_area"></section>
+    <section class="result_area">
+      <button id="btn">收益计算</button>
+      <div class="result_wrapper" id="result_wrapper">
+
+      </div>
+    </section>
   </div>
-  <script src="./js/index.js"></script>
+  <script src="./index.js"></script>
+  <script>
+    window.onload = function() {
+      btn.onclick = function() {
+        onClick();
+      }
+    }
+  </script>
 </body>
 
 </html>
